@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   parseText() async {
     //pick the image
-    final imagefile = await ImagePicker().getImage(source: ImageSource.camera, maxHeight: 970, maxWidth: 670,);
+    final imagefile = await ImagePicker().getImage(source: ImageSource.gallery, maxHeight: 970, maxWidth: 670,);
     //prepare the image
     setState(() {
       uploading == true;
@@ -46,6 +46,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
